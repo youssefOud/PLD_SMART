@@ -1,7 +1,5 @@
-import javax.persistence.Entity;
-
-@Entity
-public class Demand extends Service{
+package Model;
+public class Demand extends Service {
 
 	
 }
