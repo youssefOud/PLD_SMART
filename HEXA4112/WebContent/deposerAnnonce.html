@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" -->
+<!-- 	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script> -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" /> -->
+<meta charset="UTF-8">
+<title>D&eacute;pose ton annonce !</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">HEXA4112</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarColor02" aria-controls="navbarColor02"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor02">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#">D&eacute;poser
+						une annonce <span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Offres</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Demandes</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Recherche</a></li>
+
+			</ul>
+			<ul class="nav navbar-nav ml-auto">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+					role="button" aria-haspopup="true" aria-expanded="true">Bonjour,
+						Agathe</a>
+					<div class="dropdown-menu" x-placement="bottom-start"
+						style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
+						<a class="dropdown-item" href="#">Pr&eacute;f&eacute;rences</a> <a
+							class="dropdown-item" href="#">Contact Support</a> <a
+							class="dropdown-item" href="#">Déconnexion</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
+	<form>
+		<fieldset>
+			<legend>Votre annonce</legend>
+
+
+			<fieldset class="form-group">
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios1" id="offre"
+						value="offre" checked=""> Offre
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios1" id="demande"
+						value="demande"> Demande
+					</label>
+				</div>
+
+			</fieldset>
+
+			<div class="form-group">
+				<label for="categories">Cat&eacute;gorie</label> <select
+					class="form-control" id="categories">
+					<option>Bricolage</option>
+					<option>Education</option>
+					<option>Electrom&eacute;nager</option>
+					<option>Informatique</option>
+					<option>Jeux</option>
+					<option>Literie</option>
+					<option>Meubles</option>
+					<option>T&eacute;l&eacute;phonie</option>
+					<option>Ustensiles de cuisine</option>
+					<option>V&ecirc;tements</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="objet">Nom de l'objet</label> <input type="text"
+					class="form-control" id="objet"
+					placeholder="Renseignez le nom de l'objet">
+			</div>
+
+			<div class="form-group">
+				<label for="objet">Dur&eacute;e de disponibilit&eacute;</label> <input
+					type="number" class="form-control" id="duree"
+					placeholder="Renseignez la dur&eacute;e de disponibilit&eacute; de l'objet">
+			</div>
+
+			<fieldset class="form-group">
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios2" id="heures"
+						value="heures" checked=""> Heures
+					</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label"> <input type="radio"
+						class="form-check-input" name="optionsRadios2" id="jours"
+						value="jours"> Jours
+					</label>
+				</div>
+			</fieldset>
+
+			<div class="form-group">
+				<label for="localisations">Localisation</label> <select
+					class="form-control" id=""localisations"">
+					<option>R&eacute;sidence A</option>
+					<option>R&eacute;sidence B</option>
+					<option>R&eacute;sidence C</option>
+					<option>R&eacute;sidence D</option>
+					<option>R&eacute;sidence E</option>
+					<option>R&eacute;sidence F</option>
+					<option>R&eacute;sidence G</option>
+					<option>R&eacute;sidence H</option>
+					<option>R&eacute;sidence I</option>
+					<option>R&eacute;sidence J</option>
+					<option>Autre</option>
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label for="objet">Nombre de points</label> <input
+					type="number" class="form-control" id="nbPts"
+					placeholder="Renseignez le nombre de points associ&eacute; à l'annonce">
+			</div>
+			
+
+
+
+
+			<div class="form-group">
+				<label for="exampleSelect2">Example multiple select</label> <select
+					multiple="" class="form-control" id="exampleSelect2">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+
+
+			<div class="form-group">
+				<label for="exampleTextarea">Example textarea</label>
+				<textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile">File input</label> <input type="file"
+					class="form-control-file" id="exampleInputFile"
+					aria-describedby="fileHelp"> <small id="fileHelp"
+					class="form-text text-muted">This is some placeholder
+					block-level help text for the above input. It's a bit lighter and
+					easily wraps to a new line.</small>
+			</div>
+
+			<fieldset class="form-group">
+				<legend>Checkboxes</legend>
+				<div class="form-check">
+					<label class="form-check-label"> <input
+						class="form-check-input" type="checkbox" value="" checked="">
+						Option one is this and that—be sure to include why it's great
+					</label>
+				</div>
+				<div class="form-check disabled">
+					<label class="form-check-label"> <input
+						class="form-check-input" type="checkbox" value="" disabled="">
+						Option two is disabled
+					</label>
+				</div>
+			</fieldset>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</fieldset>
+	</form>
+
+	<div class="container">
+		<div class="row">
+			<div class='col-sm-6'>
+				<div class="form-group">
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='text' class="form-control" /> <span
+							class="input-group-addon"> <span
+							class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(function() {
+					$('#datetimepicker1').datetimepicker();
+				});
+			</script>
+		</div>
+	</div>
+
+
+
+
+
+
+</body>
+</html>
