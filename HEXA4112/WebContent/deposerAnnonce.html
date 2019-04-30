@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous"/>
+	crossorigin="anonymous" />
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
@@ -20,8 +20,11 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-	<link rel="stylesheet"
-	href="css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="css/bootstrap.min.css"></link>
+<script src="js/bootstrap-datepicker.js"></script>
+<link rel="stylesheet" href="css/datepicker.css"></link>
+<script src="js/clockpicker.js"></script>
+<link rel="stylesheet" href="css/clockpicker.css"></link>
 <meta charset="UTF-8">
 <title>D&eacute;pose ton annonce !</title>
 </head>
@@ -52,7 +55,7 @@
 					<div class="dropdown-menu" x-placement="bottom-start"
 						style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
 						<a class="dropdown-item" href="#">Pr&eacute;f&eacute;rences</a> <a
-							class="dropdown-item" href="#">Contact Support</a> <a
+							class="dropdown-item" href="#">Contact support</a> <a
 							class="dropdown-item" href="#">Déconnexion</a>
 					</div></li>
 			</ul>
@@ -80,7 +83,7 @@
 
 			</fieldset>
 
-			<div class="form-group row">
+			<div class="form-group ">
 				<label for="categories">Cat&eacute;gorie</label> <select
 					class="form-control" id="categories">
 					<option>Bricolage</option>
@@ -102,6 +105,19 @@
 					placeholder="Renseignez le nom de l'objet">
 			</div>
 
+
+			<div >
+				<!-- Date input -->
+				<label class="control-label" for="date">Date de disponibilité</label> 
+				<input
+					class="form-control" id="date" name="date" placeholder="DD/MM/AAAA"
+					type="text" />
+    <input type="text" class="form-control" name="time" placeholder="HH:mm" >
+    
+</div>
+			
+			
+			
 			<div class="form-group">
 				<label for="objet">Dur&eacute;e de disponibilit&eacute;</label> <input
 					type="number" class="form-control" id="duree"
@@ -123,9 +139,9 @@
 				</div>
 			</fieldset>
 
-			<div class="form-group row">
+			<div class="form-group">
 				<label for="localisations">Localisation</label> <select
-					class="form-control" id=""localisations"">
+					class="form-control" id="localisations">
 					<option>R&eacute;sidence A</option>
 					<option>R&eacute;sidence B</option>
 					<option>R&eacute;sidence C</option>
@@ -139,40 +155,36 @@
 					<option>Autre</option>
 				</select>
 			</div>
-			
+
 			<div class="form-group">
-				<label for="objet">Nombre de points</label> <input
-					type="number" class="form-control" id="nbPts"
+				<label for="objet">Nombre de points</label> <input type="number"
+					class="form-control" id="nbPts"
 					placeholder="Renseignez le nombre de points associ&eacute; à l'annonce">
 			</div>
+
 			<button type="button" class="btn btn-primary">Valider</button>
 		</fieldset>
 	</form>
-
-	<div class="container">
-		<div class="row">
-			<div class='col-sm-6'>
-				<div class="form-group">
-					<div class='input-group date' id='datetimepicker1'>
-						<input type='text' class="form-control" /> <span
-							class="input-group-addon"> <span
-							class="glyphicon glyphicon-calendar"></span>
-						</span>
-					</div>
-				</div>
-			</div>
-			<script type="text/javascript">
-				$(function() {
-					$('#datetimepicker1').datetimepicker();
-				});
-			</script>
-		</div>
-	</div>
-
-
-
-
-
-
+	<script>
+		$(document).ready(
+				function() {
+		
+					$('input[name="date"]').datepicker({
+					    format: "dd/mm/yyyy",
+					    locale: "fr",
+					    autoclose : true,
+					    todayHighlight : true,
+					    pick12HourFormat: true
+					});
+					$('input[name="time"]').clockpicker({
+						autoclose: true,
+					    donetext: 'Done'
+					});
+				}
+				
+		
+		
+		)
+	</script>
 </body>
 </html>
