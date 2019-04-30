@@ -68,7 +68,7 @@
 				</fieldset>
 
 				<!-- Type d'annonce -->
-				<div class="form-group ">
+				<div class="form-group">
 					<div class="custom-control custom-radio custom-control-inline">
 						<input type="radio" class="custom-control-input"
 							id="offre" checked="" name="type">
@@ -84,7 +84,7 @@
 				<!-- Catégories -->
 				<div class="form-group">
 					<label for="categories">Cat&eacute;gorie</label> <select
-						class="form-control" id="categories">
+						class="form-control select" id="categories">
 						<option>Bricolage</option>
 						<option>Education</option>
 						<option>Electrom&eacute;nager</option>
@@ -145,7 +145,7 @@
 				<!-- Localisations-->
 				<div class="form-group">
 					<label for="localisations">Localisation</label> <select
-						class="form-control" id="localisations">
+						class="form-control select" id="localisations">
 						<option>R&eacute;sidence A</option>
 						<option>R&eacute;sidence B</option>
 						<option>R&eacute;sidence C</option>
@@ -169,7 +169,52 @@
 
 				<!-- Validation -->
 				<div class="center">
-					<button type="button" class="btn btn-primary" id="valider">Valider</button>
+					<button type="button" class="btn btn-primary" id="valider"
+					>Valider</button>
+				</div>
+				
+				<!-- Pop Up de validation -->
+				<div class="modal" id="validation">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				
+				      <div class="modal-header">
+				        <h4 class="modal-title">Validation</h4>
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				      </div>
+				
+				      <div class="modal-body">
+				        Êtes-vous sûr de vouloir déposer cette annonce ?
+				      </div>
+				
+				      <div class="modal-footer">
+				        <button type="button" id="deposer" class="btn btn-primary" data-dismiss="modal">Déposer</button>
+				      </div>
+				
+				    </div>
+				  </div>
+				</div>
+				
+				<!-- Pop Up d'erreur -->
+				<div class="modal" id="erreur">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				
+				      <div class="modal-header">
+				        <h4 class="modal-title">Erreur</h4>
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				      </div>
+				
+				      <div class="modal-body">
+				        La requête n'a pas pu aboutir. Veuillez réessayer ultérieurement.
+				      </div>
+				
+				      <div class="modal-footer">
+				        <button type="button" id="deposer" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+				      </div>
+				
+				    </div>
+				  </div>
 				</div>
 
 			</form>
@@ -257,9 +302,33 @@
   						send=false;
   						document.getElementById("nbPts").classList.add("is-invalid");
   					}
-  					console.log(answers);
+
+					if(send){
+						//Validation
+						$("#validation").modal();
+						
+					}
+				});
+				
+				
+				document.getElementById("deposer").addEventListener("click", function(){
+					console.log("glou");
+					$.ajax({
+			            type: 'POST',
+			            url: 'url',
+			            data: answers,
+			            timeout: 3000,
+			            success: function(data){
+			              $('#zone').html(data);
+			            },
+			            error: function(){
+			            	$("#erreur").modal();
+			            }
+			          });
 				});
 			});
+			
+			
 			
 		</script>
 	</body>
