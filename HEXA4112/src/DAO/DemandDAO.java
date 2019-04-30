@@ -1,5 +1,7 @@
 package DAO;
 
+import javax.persistence.EntityManager;
+
 import Model.Demand;
 
 public class DemandDAO {

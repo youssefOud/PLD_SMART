@@ -1,5 +1,6 @@
 package DAO;
 
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import Model.User;
@@ -33,11 +34,12 @@ public class UserDAO {
     			+ " AND u.password=:passwordToVerify");
     	query.setParameter("loginToVerify", login);
     	query.setParameter("passwordToVerify", password);
+		
     	
     	// TODO : change when javax.persistence marche
     	// User user = query.getResult();
     	// return user;
-    	
+    	return null;
     }
 	
 }

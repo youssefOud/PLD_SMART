@@ -2,8 +2,8 @@ package Services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import javax.persistence.RollbackException;
 
 import DAO.*;
 import Model.Demand;
@@ -20,16 +20,18 @@ public class Services {
     }
     
     // TODO : compléter
-    public static User connexion (String mail, String mdp) {
+    public User connexion (String mail, String mdp) {
     	JpaUtil.createEntityManager();
-    	
-    	User user = UserDAO.verifyUserAccount(mail, mdp);
+    	UserDAO userDAO = new UserDAO();
+    	User user = userDAO.verifyUserAccount(mail, mdp);
     	JpaUtil.closeEntityManager();
+    	
+    	return user;
     }
     
     // TODO : A completer : Dans l'ActionServlet, le bouton radio
     // permet de savoir si c'est une demande ou une offre
-    public static boolean createDemand (User user, Demand demand) {
+    public boolean createDemand (User user, Demand demand) {
     	JpaUtil.createEntityManager();
     	JpaUtil.openTransaction();
     	
@@ -49,7 +51,7 @@ public class Services {
     }
     
  // TODO : A completer
-    public static boolean createOffer (User user, Offer offer) {
+    public boolean createOffer (User user, Offer offer) {
     	JpaUtil.createEntityManager();
     	JpaUtil.openTransaction();
     	
@@ -70,13 +72,11 @@ public class Services {
     
     // TODO : A completer : permet de retourner toutes les demandes
     // en cours
-    public static List<Demand> findAllDemands() {
+    public List<Demand> findAllDemands() {
     	JpaUtil.createEntityManager();
     	JpaUtil.openTransaction();
     	
     	List<Demand> listDemand = new ArrayList<>();
-    	
-    	
     	
     	JpaUtil.closeEntityManager();
     	return listDemand;
@@ -86,7 +86,7 @@ public class Services {
     // comparaison
     // TODO : A completer : permet de retourner toutes les demandes
     // en cours avec les filtres mis
-    public static List<Demand> findAllDemandsWithFilter(/*Add Filter*/) {
+    public List<Demand> findAllDemandsWithFilter(/*Add Filter*/) {
     	JpaUtil.createEntityManager();
     	JpaUtil.openTransaction();
     	
@@ -100,7 +100,7 @@ public class Services {
     
     // TODO : A completer : permet de retourner toutes les offres
     // en cours
-    public static List<Offer> findAllOffers() {
+    public List<Offer> findAllOffers() {
     	JpaUtil.createEntityManager();
     	JpaUtil.openTransaction();
     	
@@ -116,7 +116,7 @@ public class Services {
     // comparaison
     // TODO : A completer : permet de retourner toutes les offres
     // en cours avec les filtres mis
-    public static List<Offer> findAllOffers(/*Add Filter*/) {
+    public List<Offer> findAllOffersWithFilters(/*Add Filter*/) {
     	JpaUtil.createEntityManager();
     	JpaUtil.openTransaction();
     	
@@ -126,5 +126,16 @@ public class Services {
     	
     	JpaUtil.closeEntityManager();
     	return listOffer;
+    }
+    
+    public User getUserById(Long idUser) {
+    	JpaUtil.createEntityManager();
+    	JpaUtil.openTransaction();
+    	
+    	UserDAO userDAO = new UserDAO();
+    	User user = userDAO.findById(idUser);
+    	
+    	JpaUtil.closeEntityManager();
+    	return user;
     }
 }

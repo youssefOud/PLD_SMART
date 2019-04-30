@@ -1,5 +1,7 @@
 package DAO;
 
+import javax.persistence.EntityManager;
+
 import Model.Market;
 
 public class MarketDAO {

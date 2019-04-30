@@ -1,5 +1,7 @@
 package DAO;
 
+import javax.persistence.EntityManager;
+
 import Model.Offer;
 
 public class OfferDAO {
@@ -14,7 +16,7 @@ public class OfferDAO {
     }
     public void persist(Offer offer){
         EntityManager em = JpaUtil.getEntityManager();
-        em.persist(Offer);
+        em.persist(offer);
     }
     public void merge(Offer offer){
         EntityManager em = JpaUtil.getEntityManager();
