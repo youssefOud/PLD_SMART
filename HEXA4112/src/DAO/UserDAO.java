@@ -1,5 +1,7 @@
 package DAO;
 
+import javax.persistence.Query;
+
 import Model.User;
 
 public class UserDAO {
@@ -23,6 +25,19 @@ public class UserDAO {
     public void remove(User user){
         EntityManager em = JpaUtil.getEntityManager();
         em.remove(user);
+    }
+    
+    public User verifyUserAccount(String login, String password) {
+    	EntityManager em = JpaUtil.getEntityManager();
+    	Query query = em.createQuery("select u from User u where u.login=:loginToVerify"
+    			+ " AND u.password=:passwordToVerify");
+    	query.setParameter("loginToVerify", login);
+    	query.setParameter("passwordToVerify", password);
+    	
+    	// TODO : change when javax.persistence marche
+    	// User user = query.getResult();
+    	// return user;
+    	
     }
 	
 }
